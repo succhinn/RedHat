@@ -1,0 +1,56 @@
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Script Tutorials" />
+    <title>Responsive website using AngularJS | Script Tutorials</title>
+    <meta name="description" content="Responsive website using AngularJS - demo page">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <!-- add styles -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- add javascripts -->
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+
+<header>
+    <div class="wrap">
+        <!-- logo -->
+        <a href="#!"><img class="logo" src="images/logo.png" /></a>
+        <!-- navigation menu -->
+        <nav>
+            <ul>
+                <li><a id="workBtn" href="#!/" ng-class="{activeSmall:part == 'projects'}" >Our Products</a></li>
+                <li><a id="privacyBtn" href="#!/privacy" ng-class="{activeSmall:part == 'privacy'}">Privacy & Terms</a></li>
+                <li><a id="aboutBtn" href="#!/about" ng-class="{activeSmall:part == 'about'}">About</a></li>
+                <li style="margin-right:0px"><a id="contactBtn" class="active" href="javascript: void(0)" ng-click="showForm()">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
+<!-- Login form -->
+<div class="paddRow contactRow">
+    <div class="wrap">
+        <div class="head">Login to your account</div>
+        <img class="close" src="images/close.png" ng-click="closeForm()" />
+        <form ng-submit="save()" class="contactForm" name="form" ng-hide="loaded">
+            <input class="input email" required="required" type="email" name="email" value="" placeholder="your email" ng-model="message.email" /><br />
+			 <input class="input" required="required" type="text" name="name" placeholder="your password" ng-model="message.name" />
+            <button class="btn green">Login</button>
+        </form>
+        <!-- contact us form response messages -->
+        <div ng-show="process" style="text-align:center">
+            <img class="loader" src="images/loader.png" />
+        </div>
+      </div>
+</div>
+
+<!-- main content -->
+<div style="position:relative">
+    <div style="width:100%" ng-view ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div>
+</div>
+
+</head>
